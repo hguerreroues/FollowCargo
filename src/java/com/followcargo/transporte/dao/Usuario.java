@@ -10,6 +10,7 @@ public class Usuario implements Serializable {
     private String rol;
     private String nombreCompleto;
     private String estado;
+    private String fechaCreacion;
 
     public Usuario() {
     }
@@ -71,9 +72,17 @@ public class Usuario implements Serializable {
         this.estado = estado;
     }
 
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombreUsuario=" + nombreUsuario + ", contra=" + contra + ", rol=" + rol + ", nombreCompleto=" + nombreCompleto + ", estado=" + estado + '}';
+        return "Usuario{" + "id=" + id + ", nombreUsuario=" + nombreUsuario + ", contra=" + contra + ", rol=" + rol + ", nombreCompleto=" + nombreCompleto + ", estado=" + estado + ", fechaCreacion=" + fechaCreacion + '}';
     }
-    
+
 }
