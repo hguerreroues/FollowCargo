@@ -17,6 +17,25 @@
         <url-pattern>/ControladorUsuario</url-pattern>
         <url-pattern>/Dashboard</url-pattern>
     </servlet-mapping>
+    <!-- Rutas -->
+    <servlet>
+        <servlet-name>CreateTrip</servlet-name>
+        <jsp-file>/WEB-INF/jsp/rutas/crear-viaje.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateTrip</servlet-name>
+        <url-pattern>/crear-viaje</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListTrips</servlet-name>
+        <jsp-file>/WEB-INF/jsp/rutas/listar-viajes.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListTrips</servlet-name>
+        <url-pattern>/viajes</url-pattern>
+    </servlet-mapping>
+    <!-- Fin de Rutas -->
     <session-config>
         <session-timeout>
             30
