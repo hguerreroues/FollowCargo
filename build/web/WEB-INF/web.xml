@@ -17,7 +17,7 @@
         <url-pattern>/ControladorUsuario</url-pattern>
         <url-pattern>/Dashboard</url-pattern>
     </servlet-mapping>
-    <!-- Rutas -->
+    <!-- Inicio de Planificación de Rutas -->
     <servlet>
         <servlet-name>CreateTrip</servlet-name>
         <jsp-file>/WEB-INF/jsp/rutas/crear-viaje.jsp</jsp-file>
@@ -35,7 +35,7 @@
         <servlet-name>ListTrips</servlet-name>
         <url-pattern>/viajes</url-pattern>
     </servlet-mapping>
-    <!-- Fin de Rutas -->
+    <!-- Fin Planificación de Rutas -->
     <session-config>
         <session-timeout>
             30

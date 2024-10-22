@@ -29,7 +29,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="viajes" aria-expanded="false">
                       <span>
-                        <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                        <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
                       </span>
                       <span class="hide-menu">Planificación de Rutas</span>
                     </a>

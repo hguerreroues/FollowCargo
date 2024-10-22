@@ -5,27 +5,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FollowCargo - Crear Viaje</title>
+    <title>FollowCargo - Crear Ruta</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/seodashlogo.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
     <link rel="stylesheet" href="assets/css/rutas/styles.css" />
 </head>
 <body>
-    <!-- Header -->
-    
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">Crear Nuevo Viaje</h5>
                 <form id="tripForm" class="needs-validation" novalidate>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="card-title fw-semibold">Crear Nueva Ruta</h5>
+                        <div>
+                            <a href="/FollowCargo/viajes" class="btn btn-secondary me-2">
+                                <i class="ti ti-arrow-left"></i> Regresar
+                            </a>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <i class="ti ti-device-floppy"></i> 
+                                <span id="submitBtnText">Crear Ruta</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="tripId" value="">
+                    
+                    <!-- Fecha de Viaje -->
+                    <div class="mb-3">
+                        <label for="fechaViaje" class="form-label">Fecha de Ruta</label>
+                        <input type="date" class="form-control" id="fechaViaje" required>
+                        <div class="invalid-feedback">
+                            Por favor seleccione la fecha de la Ruta
+                        </div>
+                    </div>
+
                     <!-- Selección de Vehículo -->
                     <div class="mb-3">
                         <label for="vehiculo" class="form-label">Vehículo</label>
                         <select class="form-select" id="vehiculo" required>
                             <option value="">Seleccione un vehículo</option>
-                            <option value="1">Camión ABC123 - Tipo Furgón</option>
-                            <option value="2">Camión DEF456 - Tipo Plataforma</option>
-                            <option value="3">Camión GHI789 - Tipo Cisterna</option>
+                            <option value="1" data-recargo="10">Placa: ABC-123 - Toyota Hilux 2023 - Tipo: Liviano</option>
+                            <option value="2" data-recargo="15">Placa: DEF-456 - Nissan NP300 2022 - Tipo: Particular</option>
+                            <option value="3" data-recargo="20">Placa: GHI-789 - Volvo FH16 2023 - Tipo: Pesado</option>
                         </select>
                         <div class="invalid-feedback">
                             Por favor seleccione un vehículo
@@ -37,9 +58,9 @@
                         <label for="producto" class="form-label">Producto</label>
                         <select class="form-select" id="producto" required>
                             <option value="">Seleccione un producto</option>
-                            <option value="1">Cajas de cartón - 500kg</option>
-                            <option value="2">Contenedor refrigerado - 1000kg</option>
-                            <option value="3">Materiales de construcción - 2000kg</option>
+                            <option value="1">Producto: Cajas de cartón - Peso: 500kg</option>
+                            <option value="2">Producto: Contenedor refrigerado - Peso: 1000kg</option>
+                            <option value="3">Producto: Materiales de construcción - Peso: 2000kg</option>
                         </select>
                         <div class="invalid-feedback">
                             Por favor seleccione un producto
@@ -71,7 +92,26 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Crear Viaje</button>
+                    <!-- Resumen de Costo -->
+                    <div class="card bg-light mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title">Resumen de Costo</h6>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="mb-1">Costo por distancia:</p>
+                                    <h5 id="costoDistancia">$0.00</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="mb-1">Recargo por tipo:</p>
+                                    <h5 id="costoRecargo">$0.00</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="mb-1">Costo total:</p>
+                                    <h5 id="costoTotal">$0.00</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
