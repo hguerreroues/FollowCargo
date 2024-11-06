@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rutas</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/followcargologo.png" />
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/Logo-cuadrado-iconoFondo.png" />
   <link rel="stylesheet" href="assets/css/styles.min.css" />
 </head>
 
@@ -20,7 +20,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.jsp" class="text-nowrap logo-img text-center d-block py-3 w-100">
-            <img src="../assets/images/logos/followcargo.jpeg" alt="">
+            <img src="../assets/images/logos/logo-vertical.svg" alt="">
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>

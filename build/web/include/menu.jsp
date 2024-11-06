@@ -16,7 +16,7 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-                    <span class="hide-menu">Home</span>
+                    <span class="hide-menu">HOME</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="dashboard" aria-expanded="false">
@@ -26,100 +26,29 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
+                
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+                    <span class="hide-menu">RUTAS</span>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="viajes" aria-expanded="false">
                       <span>
                         <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
                       </span>
-                      <span class="hide-menu">Planificación de Rutas</span>
+                      <span class="hide-menu">Listado de rutas</span>
                     </a>
                   </li>
-                <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-                    <span class="hide-menu">UI COMPONENTS</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/ui-buttons.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Buttons</span>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="crear-viaje" aria-expanded="false">
+                      <span>
+                        <iconify-icon icon="gis:route"></iconify-icon>
+                      </span>
+                      <span class="hide-menu">Crear ruta</span>
                     </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/ui-alerts.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Alerts</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/ui-card.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Card</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/ui-forms.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Forms</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/ui-typography.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:text-field-focus-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Typography</span>
-                    </a>
-                </li>
-                <li class="nav-small-cap">
-                <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
-                <span class="hide-menu">AUTH</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/authentication-login.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Login</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/authentication-register.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Register</span>
-                    </a>
-                </li>
-                <li class="nav-small-cap">
-                <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4" class="fs-6"></iconify-icon>
-                <span class="hide-menu">EXTRA</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/icon-tabler.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:sticker-smile-circle-2-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Icons</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="html/sample-page.html" aria-expanded="false">
-                        <span>
-                            <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
-                        </span>
-                        <span class="hide-menu">Sample Page</span>
-                    </a>
-                </li>
+                  </li>
+      
             </ul>
-
         </nav>
         <!-- End Sidebar navigation -->
     </div>
