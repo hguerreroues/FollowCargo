@@ -9,10 +9,10 @@
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
     response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 %>
-<c:if test="${sessionScope['user_session']==null}">
+<%-- <c:if test="${sessionScope['user_session']==null}">
     <%response.sendRedirect("/FollowCargo");%>
     <%String msg = (String) session.getAttribute("username");%>
-</c:if>
+</c:if> --%>
 <!doctype html>
 <html lang="en">
 

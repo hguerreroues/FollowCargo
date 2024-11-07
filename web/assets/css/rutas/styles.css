@@ -1,0 +1,16 @@
+.card {
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.badge {
+    padding: 8px 12px;
+}
