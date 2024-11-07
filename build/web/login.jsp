@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" type="image/png" href="assets/images/logos/seodashlogo.png" />
+        <link rel="shortcut icon" type="image/png" href="assets/images/logos/Logo-cuadrado-icono.png" />
         <link rel="stylesheet" href="assets/css/styles.min.css" />
     </head>
 
@@ -18,7 +18,7 @@
                             <div class="card mb-0">
                                 <div class="card-body">
                                     <div class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                        <img src="assets/images/logos/logo-light.svg" alt="">
+                                        <img src="assets/images/logos/logo-vertical.svg" alt="">
                                     </div>
                                     <p class="text-center">Follow Cargo</p>
                                     
@@ -35,7 +35,7 @@
                                             <input type="password" class="form-control" name="psw" id="psw">
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mb-4">
-                                            <a class="text-primary fw-bold" href="#">Olvidaste tu contasena?</a>
+                                            <a class="text-primary fw-bold" href="#">Olvidaste tu contaseña?</a>
                                         </div>
                                         <button type="button" class="btn btn-primary w-100 py-8 fs-4 mb-4" onclick="getSha(); form.submit()">Iniciar Sesion</button>
                                         <div class="d-flex align-items-center justify-content-center">

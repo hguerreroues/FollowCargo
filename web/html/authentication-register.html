@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <title>Registro FollowCargo</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/followcargologo.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -21,26 +22,183 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="../assets/images/logos/logo-light.svg" alt="">
+                  <img src="../assets/images/logos/followcargo.jpeg" alt="">
                 </a>
-                <p class="text-center">Your Social Campaigns</p>
+                <b>
+                  <p class="text-center">REGISTRO DE USUARIOS</p>
+                </b>
+
+
                 <form>
                   <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <label for="exampleInputtext1" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp"
+                      oninput="validatePasswords()">
+                    <div id="textAlert" class="alert alert-danger d-none mt-2" role="alert">
+                      Completa este campo.
+                    </div>
                   </div>
+
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      oninput="validateEmail(); validatePasswords();">
                   </div>
+                  <!-- Mensaje de alerta para correo inválido -->
+                  <div id="emailAlert" class="alert alert-danger d-none mt-2" role="alert">
+                    Por favor, ingresa un correo electrónico válido.
+                  </div>
+
+
+                  <script>
+                    function validateEmail() {
+                      const emailInput = document.getElementById("exampleInputEmail1");
+                      const emailAlert = document.getElementById("emailAlert");
+
+                      // Expresión regular para formato de correo electrónico
+                      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                      // Validar si el correo cumple con el formato
+                      if (emailPattern.test(emailInput.value)) {
+                        emailAlert.classList.add("d-none"); // Oculta la alerta si es válido
+                        emailInput.classList.remove("is-invalid");
+                        emailInput.classList.add("is-valid");
+                      } else {
+                        emailAlert.classList.remove("d-none"); // Muestra la alerta si no es válido
+                        emailInput.classList.remove("is-valid");
+                        emailInput.classList.add("is-invalid");
+                      }
+                    }
+                  </script>
+
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="exampleInputPassword1"
+                        oninput="validatePasswords()">
+                      <span class="input-group-text" onclick="togglePasswordVisibility()">
+                        <i id="toggleIcon" class="fa fa-eye"></i>
+                      </span>
+                    </div>
+                  </div>
+
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="exampleInputPassword2" class="form-label">Repetir Contraseña</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="exampleInputPassword2"
+                        oninput="validatePasswords()">
+                      <span class="input-group-text" onclick="togglePasswordVisibility1()">
+                        <i id="toggleIcon2" class="fa fa-eye"></i>
+                      </span>
+                    </div>
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4">Sign Up</a>
+
+
+                  <!-- Botón de registrarse -->
+                  <div class="d-flex justify-content-center">
+                    <a href="./index.html" id="registerButton" class="btn btn-primary w-50 py-8 fs-4 mb-4 disabled"
+                      role="button" aria-disabled="true" disabled>Registrarse</a>
+                  </div>
+
+
+                  <!-- Alerta de contraseñas no coinciden -->
+                  <div id="passwordAlert" class="alert alert-danger d-none" role="alert">
+                    Las contraseñas no coinciden.
+                  </div>
+
+                  <script>
+                    function togglePasswordVisibility() {
+                      const passwordInput = document.getElementById("exampleInputPassword1");
+                      const toggleIcon = document.getElementById("toggleIcon");
+
+                      if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        toggleIcon.classList.remove("fa-eye");
+                        toggleIcon.classList.add("fa-eye-slash");
+                      } else {
+                        passwordInput.type = "password";
+                        toggleIcon.classList.remove("fa-eye-slash");
+                        toggleIcon.classList.add("fa-eye");
+                      }
+                    }
+
+                    function togglePasswordVisibility1() {
+                      const passwordInput = document.getElementById("exampleInputPassword2");
+                      const toggleIcon = document.getElementById("toggleIcon2");
+
+                      if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        toggleIcon.classList.remove("fa-eye");
+                        toggleIcon.classList.add("fa-eye-slash");
+                      } else {
+                        passwordInput.type = "password";
+                        toggleIcon.classList.remove("fa-eye-slash");
+                        toggleIcon.classList.add("fa-eye");
+                      }
+                    }
+
+                    function validatePasswords() {
+                      const password1 = document.getElementById("exampleInputPassword1").value;
+                      const password2 = document.getElementById("exampleInputPassword2").value;
+                      const textInput = document.getElementById("exampleInputtext1").value;
+                      const emailInput = document.getElementById("exampleInputEmail1").value;
+                      const passwordAlert = document.getElementById("passwordAlert");
+                      const registerButton = document.getElementById("registerButton");
+
+                      // Expresión regular para formato de correo electrónico
+                      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                      // Verificar si todos los campos están llenos y si el correo es válido
+                      const allFieldsFilled = textInput && emailInput && password1 && password2;
+                      const isEmailValid = emailPattern.test(emailInput);
+
+                      // Verifica si el campo de usuario está vacío
+                      if (textInput.trim() === "") {
+                        textAlert.classList.remove("d-none"); // Muestra la alerta si el campo está vacío
+                      } else {
+                        textAlert.classList.add("d-none"); // Oculta la alerta si el campo no está vacío
+                      }
+
+                      if (allFieldsFilled && isEmailValid) {
+                        if (password1 === password2) {
+                          passwordAlert.classList.add("d-none"); // Oculta la alerta si coinciden
+                          registerButton.classList.remove("disabled"); // Habilita el botón
+                          registerButton.setAttribute("aria-disabled", "false");
+                        } else {
+                          passwordAlert.classList.remove("d-none"); // Muestra la alerta si no coinciden
+                          registerButton.classList.add("disabled"); // Deshabilita el botón
+                          registerButton.setAttribute("aria-disabled", "true");
+                        }
+                      } else {
+                        // Muestra alerta para el campo de usuario
+                        if (!textInput) {
+                          document.getElementById("textAlert").classList.remove("d-none");
+                        } else {
+                          document.getElementById("textAlert").classList.add("d-none"); // Oculta alerta si el campo no está vacío
+                        }
+
+                        passwordAlert.classList.add("d-none"); // Oculta la alerta de contraseñas si hay campos vacíos
+                        registerButton.classList.add("disabled"); // Deshabilita el botón
+                        registerButton.setAttribute("aria-disabled", "true");
+                      }
+                    }
+
+
+
+
+                  </script>
+                  <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
                   <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
-                    <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Sign In</a>
+                    <p class="fs-4 mb-0 fw-bold">Ya tienes una cuenta?</p>
+                    <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Iniciar Sesión</a>
+                  </div>
+                  <br>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <footer>
+                      <p>© 2024 Followcargo. Todos los derechos reservados.</p>
+                    </footer>
                   </div>
                 </form>
               </div>
