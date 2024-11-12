@@ -8,6 +8,18 @@
         <servlet-name>Dashboard</servlet-name>
         <jsp-file>/dashboard.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>ControlladorRutas</servlet-name>
+        <servlet-class>com.followcargo.transporte.controlador.ControlladorRutas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorProducto</servlet-name>
+        <servlet-class>com.followcargo.transporte.controlador.ControladorProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCondutores</servlet-name>
+        <servlet-class>com.followcargo.transporte.controlador.ControladorConductores</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/dashboard</url-pattern>
@@ -20,22 +32,36 @@
     <!-- Inicio de Planificación de Rutas -->
     <servlet>
         <servlet-name>CreateTrip</servlet-name>
-        <jsp-file>/WEB-INF/jsp/rutas/crear-viaje.jsp</jsp-file>
+        <jsp-file>/jsp/rutas/crear-viaje.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateTrip</servlet-name>
         <url-pattern>/crear-viaje</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>ListTrips</servlet-name>
-        <jsp-file>/WEB-INF/jsp/rutas/listar-viajes.jsp</jsp-file>
+        <jsp-file>/jsp/rutas/listar-viajes.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListTrips</servlet-name>
         <url-pattern>/viajes</url-pattern>
     </servlet-mapping>
     <!-- Fin Planificación de Rutas -->
+    <servlet-mapping>
+        <servlet-name>ControlladorRutas</servlet-name>
+        <url-pattern>/Rutas</url-pattern>
+        <url-pattern>/rutas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorProducto</servlet-name>
+        <url-pattern>/Producto</url-pattern>
+        <url-pattern>/producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCondutores</servlet-name>
+        <url-pattern>/conductores</url-pattern>
+        <url-pattern>/Conductores</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

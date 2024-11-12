@@ -2,6 +2,7 @@
 package com.followcargo.transporte.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Ruta implements Serializable {
     
@@ -11,6 +12,10 @@ public class Ruta implements Serializable {
     private String destino;
     private double distancia;
     private String fechaCreacion;
+    
+    private List<Geolocalizacion> listaGeoLocalizacion;
+    
+    private Viaje viaje;
 
     public Ruta() {
     }
@@ -71,10 +76,25 @@ public class Ruta implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    @Override
-    public String toString() {
-        return "Ruta{" + "id=" + id + ", idViaje=" + idViaje + ", origen=" + origen + ", destino=" + destino + ", distancia=" + distancia + ", fechaCreacion=" + fechaCreacion + '}';
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
     }
     
+    public List<Geolocalizacion> getListaGeoLocalizacion() {
+        return listaGeoLocalizacion;
+    }
+
+    public void setListaGeoLocalizacion(List<Geolocalizacion> listaGeoLocalizacion) {
+        this.listaGeoLocalizacion = listaGeoLocalizacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Ruta{" + "id=" + id + ", idViaje=" + idViaje + ", origen=" + origen + ", destino=" + destino + ", distancia=" + distancia + ", fechaCreacion=" + fechaCreacion + ", listaGeoLocalizacion=" + listaGeoLocalizacion + ", viaje=" + viaje + '}';
+    }
     
 }

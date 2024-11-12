@@ -22,6 +22,13 @@ public class Vehiculo implements Serializable {
         this.placa = placa;
     }
 
+    public Vehiculo(String tipo, String marca, String modelo, String placa) {
+        this.tipo = tipo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.placa = placa;
+    }
+    
     public int getId() {
         return id;
     }
