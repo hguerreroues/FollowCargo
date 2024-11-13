@@ -21,16 +21,12 @@
                                         <img src="assets/images/logos/logo-vertical.svg" alt="">
                                     </div>
                                     <p class="text-center">Follow Cargo</p>
-                                    
-                                    <!-- Formulario de inicio de sesion -->
-                                      <form action="Dashboard" method="POST" onsubmit="return false">
+
+                                    <form action="Login" method="POST" onsubmit="return false">
                                         <input type="hidden" name="action" id="action" value="login">
                                         <input type="hidden" name="contra" id="contra">
+
                                         <div class="mb-3">
-                                      <!--  <form action="login" method="POST">
-                                    <input type="hidden" name="action" id="action" value="login">
-                                    <div class="mb-3">-->
-                                        
                                             <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
                                             <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" aria-describedby="emailHelp">
                                         </div>
@@ -38,19 +34,17 @@
                                             <label for="contra" class="form-label">Contraseña</label>
                                             <input type="password" class="form-control" name="psw" id="psw">
                                         </div>
-                                        
-                                        <!-- Mostrar mensaje de error si las credenciales son incorrectas 
-                                    <c:if test="${param.error == 'invalidCredentials'}">
-                                        <div class="alert alert-danger" role="alert">
-                                            Las credenciales son incorrectas. Por favor, intente nuevamente.
-                                        </div>
-                                    </c:if> -->
-                                        
+
+                                        <c:if test="${param.error == 'invalidCredentials'}">
+                                            <div class="alert alert-danger" role="alert">
+                                                Las credenciales son incorrectas. Por favor, intente nuevamente.
+                                            </div>
+                                        </c:if>
+
                                         <div class="d-flex align-items-center justify-content-between mb-4">
                                             <a class="text-primary fw-bold" href="#">Olvidaste tu contaseña?</a>
                                         </div>
-                                         <button type="button" class="btn btn-primary w-100 py-8 fs-4 mb-4" onclick="getSha(); form.submit()">Iniciar Sesion</button>
-                                      <!--  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4">Iniciar Sesión</button>-->
+                                        <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4" onclick="getSha(); form.submit()">Iniciar Sesión</button>
                                         <div class="d-flex align-items-center justify-content-center">
                                             <%
                                                 String message = (String) session.getAttribute("login_message");
@@ -59,8 +53,6 @@
                                                     session.removeAttribute("login_mesage");
                                                 }
                                             %>
-                                            <!--<p class="fs-4 mb-0 fw-bold">New to SeoDash?</p>-->
-                                            <!--<a class="text-primary fw-bold ms-2" href="#">Create an account</a>-->
                                         </div>
                                     </form>
                                 </div>
@@ -73,16 +65,16 @@
         <script src="assets/libs/jquery/dist/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-        <script src="assets/js/sha.js" type="text/javascript"></script>
+        <script src="assets/js/sha.js" type="text/javascript"></script>        
         <script type="text/javascript">
-            function getSha()
-            {
-                //event.preventDefault();
-                pwd = $('#psw').val();
-                hash = new jsSHA(unescape(pwd), 'ASCII');
-                hash = hash.getHash('SHA-512', 'HEX');
-                $('#contra').val(hash);
-            }
+                                            function getSha()
+                                            {
+                                                //event.preventDefault();
+                                                pwd = $('#psw').val();
+                                                hash = new jsSHA(unescape(pwd), 'ASCII');
+                                                hash = hash.getHash('SHA-512', 'HEX');
+                                                $('#contra').val(hash);
+                                            }
         </script>
     </body>
 </html>

@@ -26,28 +26,52 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
-                
+               
+
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
                     <span class="hide-menu">RUTAS</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="viajes" aria-expanded="false">
-                      <span>
-                        <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
-                      </span>
-                      <span class="hide-menu">Listado de rutas</span>
+                    <a class="sidebar-link" href="rutas" aria-expanded="false">
+                        <span>
+                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                        </span>
+                        <span class="hide-menu">Listado de rutas</span>
                     </a>
-                  </li>
-                  <li class="sidebar-item">
-                    <a class="sidebar-link" href="crear-viaje" aria-expanded="false">
-                      <span>
-                        <iconify-icon icon="gis:route"></iconify-icon>
-                      </span>
-                      <span class="hide-menu">Crear ruta</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="crear-ruta" aria-expanded="false">
+                        <span>
+                            <iconify-icon icon="gis:route"></iconify-icon>
+                        </span>
+                        <span class="hide-menu">Crear ruta</span>
                     </a>
-                  </li>
-      
+                </li>
+                
+                
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+                    <span class="hide-menu">REPORTES</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="vehiculos" aria-expanded="false">
+                        <span>
+                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                        </span>
+                        <span class="hide-menu">Listado vehiculos</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#" aria-expanded="false">
+                        <span>
+                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                        </span>
+                        <span class="hide-menu">Listado conductores</span>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
@@ -76,7 +100,7 @@
             </ul>
             <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                <span class="d-none d-md-block"><c:out value="${user_session.nombreCompleto}"/></span>
+                    <span class="d-none d-md-block"><c:out value="${user_session.nombreCompleto}"/></span>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="assets/images/profile/profile.png" alt="" width="35" height="35" class="rounded-circle">
@@ -96,7 +120,7 @@
                                     <p class="mb-0 fs-3">Mis Tareas</p>
                                 </a>
                                 <a class="btn btn-outline-primary mx-3 mt-2 d-block" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                Cerrar sesión</a>
+                                    Cerrar sesión</a>
                             </div>
                         </div>
                     </li>
