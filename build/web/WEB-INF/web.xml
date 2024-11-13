@@ -9,7 +9,7 @@
         <jsp-file>/dashboard.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>ControlladorRutas</servlet-name>
+        <servlet-name>ControladorRutas</servlet-name>
         <servlet-class>com.followcargo.transporte.controlador.ControlladorRutas</servlet-class>
     </servlet>
     <servlet>
@@ -20,16 +20,18 @@
         <servlet-name>ControladorCondutores</servlet-name>
         <servlet-class>com.followcargo.transporte.controlador.ControladorConductores</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListVehicle</servlet-name>
+        <jsp-file>/reportes/listado-vehiculos.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateRoute</servlet-name>
+        <jsp-file>/crear-ruta.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControladorUsuario</servlet-name>
-        <url-pattern>/ControladorUsuario</url-pattern>
-        <url-pattern>/Dashboard</url-pattern>
-    </servlet-mapping>
-    <!-- Inicio de Planificación de Rutas -->
     <servlet>
         <servlet-name>CreateTrip</servlet-name>
         <jsp-file>/jsp/rutas/crear-viaje.jsp</jsp-file>
@@ -40,15 +42,25 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ListTrips</servlet-name>
-        <jsp-file>/jsp/rutas/listar-viajes.jsp</jsp-file>
+        <jsp-file>/reportes/listado-rutas.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ListTrips</servlet-name>
-        <url-pattern>/viajes</url-pattern>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <url-pattern>/usuario</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/Usuario</url-pattern>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    <!-- Fin Planificación de Rutas -->
     <servlet-mapping>
-        <servlet-name>ControlladorRutas</servlet-name>
+        <servlet-name>ListVehicle</servlet-name>
+        <url-pattern>/vehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRoute</servlet-name>
+        <url-pattern>/crear-ruta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRutas</servlet-name>
         <url-pattern>/Rutas</url-pattern>
         <url-pattern>/rutas</url-pattern>
     </servlet-mapping>
@@ -62,6 +74,10 @@
         <url-pattern>/conductores</url-pattern>
         <url-pattern>/Conductores</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListTrips</servlet-name>
+        <url-pattern>/listado-rutas</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -69,6 +85,5 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

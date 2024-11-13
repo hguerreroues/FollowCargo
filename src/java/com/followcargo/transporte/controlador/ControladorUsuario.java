@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import org.apache.commons.lang3.StringUtils;
 
-@WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario, /usuario"})
+@WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario, /Login, /usuario"})
 public class ControladorUsuario extends HttpServlet {
 
     private ModeloUsuario modeloUsuario;
@@ -86,10 +86,10 @@ public class ControladorUsuario extends HttpServlet {
 
         try {
 
-            System.out.println("nombreUsuario: " + nombreUsuario);
-            System.out.println("contra: " + contra);
+            //ystem.out.println("nombreUsuario: " + nombreUsuario);
+            //System.out.println("contra: " + contra);
             boolean flag = modeloUsuario.getLogin(nombreUsuario, contra);
-            System.out.println("flag: " + flag);
+            //System.out.println("flag: " + flag);
 
             if (flag) {
 
@@ -142,6 +142,7 @@ public class ControladorUsuario extends HttpServlet {
 
             usuario = (Usuario) request.getAttribute("usuario");
             String nombreCompleto = usuario.getNombreCompleto();
+            
             System.out.println(usuario);
 
             System.out.println("Servlet: ControladorUsuario?action=dashboard");

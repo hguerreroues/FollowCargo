@@ -26,7 +26,7 @@
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="card-title fw-semibold">Crear Nueva Ruta</h5>
                         <div>
-                            <a href="/FollowCargo/viajes" class="btn btn-secondary me-2">
+                            <a href="rutas" class="btn btn-secondary me-2">
                                 <i class="ti ti-arrow-left"></i> Regresar
                             </a>
                             <button type="submit" class="btn btn-primary" id="submitBtn">

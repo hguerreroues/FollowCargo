@@ -28,8 +28,8 @@ import javax.sql.DataSource;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
-@WebServlet(name = "ControlladorRutas", urlPatterns = {"/Rutas", "/rutas"})
-public class ControlladorRutas extends HttpServlet {
+@WebServlet(name = "ControladorRutas", urlPatterns = {"/Rutas", "/rutas"})
+public class ControladorRutas extends HttpServlet {
 
     private ModeloVehiculos modeloVehiculo;
     private ModeloRutas modeloRutas;

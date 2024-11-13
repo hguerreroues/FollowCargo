@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import org.apache.commons.lang3.StringUtils;
 
-@WebServlet(name = "ControlladorVehiculo", urlPatterns = {"/Vehiculo", "/vehiculo"})
-public class ControlladorVehiculo extends HttpServlet {
+@WebServlet(name = "ControladorVehiculo", urlPatterns = {"/Vehiculo", "/vehiculo"})
+public class ControladorVehiculo extends HttpServlet {
 
     private ModeloVehiculos modeloVehiculo;
 
