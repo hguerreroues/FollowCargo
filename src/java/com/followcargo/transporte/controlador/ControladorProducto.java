@@ -108,6 +108,11 @@ public class ControladorProducto extends HttpServlet {
         
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Producto producto = null;
 
@@ -130,6 +135,11 @@ public class ControladorProducto extends HttpServlet {
         
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Producto producto = null;
         

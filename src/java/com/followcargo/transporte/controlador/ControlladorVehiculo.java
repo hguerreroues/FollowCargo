@@ -78,6 +78,11 @@ public class ControlladorVehiculo extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         List<Vehiculo> listaVehiculos = new ArrayList<>();
 
@@ -99,6 +104,11 @@ public class ControlladorVehiculo extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Vehiculo vehiculo = null;
 
@@ -121,6 +131,11 @@ public class ControlladorVehiculo extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Vehiculo vehiculo = null;
         

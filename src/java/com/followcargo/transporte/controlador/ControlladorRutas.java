@@ -104,6 +104,11 @@ public class ControlladorRutas extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         List<Ruta> listaRutas = new ArrayList<>();
         List<Producto> listaProductosPorViaje = new ArrayList<>();
@@ -163,6 +168,11 @@ public class ControlladorRutas extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Ruta ruta = null;
         List<Producto> listaProductosPorViaje = new ArrayList<>();
@@ -226,6 +236,11 @@ public class ControlladorRutas extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
 
         Ruta ruta = null;
 
