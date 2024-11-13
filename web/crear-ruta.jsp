@@ -503,13 +503,39 @@
                     dataType: 'json', // El tipo de dato que esperas del servidor
                     crossDomain: true, // Habilitar CORS
                     success: function (response) {
+                        console.log(response);
                         // Limpiamos el select antes de llenarlo
                         $('#producto').empty();
                         $('#producto').append('<option value="">Seleccione una opción</option>');
 
                         // Iteramos sobre los datos y agregamos opciones al select
                         $.each(response, function (index, item) {
-                            $('#producto').append(`<option value="${item.id}">${item.nombre}</option>`);
+                            console.log(item);
+                            console.log(item.id);
+                            const producto = item.nombre + " - " + item.descripcion + " | " + item.peso+ " " + item.unidadMedida  
+                            $('#producto').append("<option value="+item.id+">" + producto + "</option>");
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error al cargar los datos: " + error);
+                    }
+                });
+                
+                $.ajax({
+                    url: 'https://infoavance.com/FollowCargo/vehiculo?action=list', // Cambia esto por la ruta a tu backend
+                    type: 'POST', // O 'POST' si el servidor lo requiere
+                    dataType: 'json', // El tipo de dato que esperas del servidor
+                    crossDomain: true, // Habilitar CORS
+                    success: function (response) {
+                        console.log(response);
+                        // Limpiamos el select antes de llenarlo
+                        $('#vehiculo').empty();
+                        $('#vehiculo').append('<option value="">Seleccione una opción</option>');
+
+                        // Iteramos sobre los datos y agregamos opciones al select
+                        $.each(response, function (index, item) {
+                            const vehiculo = item.tipo + " - " + item.marca + " " + item.modelo+ " " + item.placa  
+                            $('#producto').append("<option value="+item.id+">" + vehiculo + "</option>");
                         });
                     },
                     error: function (xhr, status, error) {
