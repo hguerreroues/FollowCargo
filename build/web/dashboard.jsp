@@ -19,10 +19,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!--  Data tables -->
+        <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/b-print-3.2.0/datatables.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+        <!--  Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!--  Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
         <title>Follow Cargo - Dashboard</title>
         <link rel="shortcut icon" type="image/png" href="assets/images/logos/Logo-cuadrado-iconoFondo.png" />
         <link rel="stylesheet" href="assets/css/styles.min.css" />
-    </head>
+        
+       </head>
 
     <body>
         <!--  Body Wrapper -->
@@ -35,20 +44,39 @@
             <div class="body-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <!--  Tabla de viajes -->
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title d-flex align-items-center gap-2 mb-4">
-                                    Rutas
-                                    <span>
-                                        <iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Traffic Overview"></iconify-icon>
-                                    </span>
+                                    
+                                    <!-- Inicia tabla-->
+                                    <table id="example" class="table table-striped" style="width: 100%">
+                                        <caption>
+                                          Tabla de rutas
+                                        </caption>
+                                        <thead>
+                                          <tr>
+                                            <th></th>
+                                            <th>#</th>
+                                            <th>Origen</th>
+                                            <th>Destino</th>
+                                            <th>Producto</th>
+                                            <th>Costo</th>
+                                            <th>Distancia</th>
+                                            <th>Estado</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="table_rutas"></tbody>
+                                      </table>
+                                    
+                                    <!-- Fin tabla-->
+                                 
                                 </h5>
-                                <div id="traffic-overview" >
-                                </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body text-center">
@@ -205,14 +233,32 @@
             
             <!-- Menu-->
             <jsp:include page="include/modal.jsp"/>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+            
+        <!-- JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+    <!-- DataTables (asegúrate de que solo se incluyan una vez) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/b-print-3.2.0/datatables.min.js"></script>
+
+    <!-- Bootstrap y otros scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="assets/js/sidebarmenu.js"></script>
     <script src="assets/js/app.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    
+    <!-- ApexCharts -->
+    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+
+    <!-- Archivos de configuración personalizados -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="include/tablaRutas.js"></script>
+    
 </body>
 
 </html>
