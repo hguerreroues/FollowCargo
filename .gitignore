@@ -81,7 +81,8 @@ nb-configuration.xml
 ##############################
 ## OS X
 ##############################
-.DS_Store# NetBeans specific #
+.DS_Store 
+# NetBeans specific #
 nbproject/private/
 build/
 nbbuild/
