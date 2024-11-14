@@ -152,14 +152,6 @@
                                         </div>
                                     </div>
 
-
-
-
-
-
-
-
-
                                     <div class="mb-3">
                                         <label for="distancia" class="form-label">Distancia (km)</label>
                                         <input type="number" class="form-control" id="distancia" required>
