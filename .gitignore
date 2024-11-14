@@ -105,3 +105,5 @@ nbproject/private/private.properties
 nbproject/private/private.xml
 nbproject/project.properties
 build/web/html/*
+/build/web/WEB-INF/classes
+/build/web/WEB-INF
