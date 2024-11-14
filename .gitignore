@@ -104,3 +104,6 @@ nbproject/private/private.properties
 nbproject/private/private.xml
 nbproject/project.properties
 
+build/web/WEB-INF/classes/com/followcargo/transporte/controlador/ControladorUsuario.class
+build/web/WEB-INF/classes/com/followcargo/transporte/dao/Usuario.class
+web/META-INF/context.xml
