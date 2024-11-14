@@ -3,11 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="dateNow" value="${now}" pattern="yyyy-MM-dd" />
-<%
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Opcional: permite estos métodos
-    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Opcional: permite estos encabezados
-%>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -70,6 +66,18 @@
                                     </div>
                                 </div>
 
+                                <!-- Selección de Vehículo -->
+                                <div class="mb-3">
+                                    <label for="vehiculo" class="form-label">Conductor</label>
+                                    <select class="form-select" id="conductor" name="conductor" required>
+                                        <option value="">Seleccione un conductor</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor seleccione un vehículo
+                                    </div>
+                                </div> 
+
+
                                 <!-- Selección de Producto -->
                                 <div class="mb-3">
                                     <label for="producto" class="form-label">Producto</label>
@@ -86,92 +94,102 @@
 
                                 <!-- Información de Ruta -->
                                 <div class="mb-3">
-                                    <label for="origen" class="form-label">Origen</label>
-                                    <input type="text" class="form-control search_location" name="origen" id="search_location" required>
-                                    <small id="searchLocation" class="form-text text-muted"><span class="search_addr"></span></small>
-                                    <div class="invalid-feedback">
-                                        Por favor ingrese el origen
-                                    </div>
-
-                                </div>
-
-
-
-                                <div class="mb-3">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label-text" for="latitudOrigen">Latitud:</label>
-                                                <input type="text" class="form-control search_latitude" name="latitudOrigen">
+                                            <div class="mb-3">
+                                                <label for="origen" class="form-label">Origen</label>
+                                                <input type="text" class="form-control search_location" name="origen" id="search_location" required>
+                                                <small id="searchLocation" class="form-text text-muted"><span class="search_addr"></span></small>
+                                                <div class="invalid-feedback">
+                                                    Por favor ingrese el origen
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label-text" for="latitudOrigen">Latitud:</label>
+                                                            <input type="text" class="form-control search_latitude" name="latitudOrigen">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="longitudOrigen">Longitud:</label>
+                                                            <input type="text" class="form-control search_longitude" name="longitudOrigen">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="longitudOrigen">Longitud:</label>
-                                                <input type="text" class="form-control search_longitude" name="longitudOrigen">
+                                            <div class="mb-3">
+                                                <label for="destino" class="form-label">Destino</label>
+                                                <input type="text" class="form-control search_location_destino" id="search_location_destino" name="destino" required>
+                                                <small id="searchLocation" class="form-text text-muted"><span class="search_addr_destino"></span></small>
+                                                <div class="invalid-feedback">
+                                                    Por favor ingrese el destino
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="latitudDestino">Latitud:</label>
+                                                            <input type="text" class="form-control search_latitude_destino" name="latitudDestino">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="longitudDestino">Longitud:</label>
+                                                            <input type="text" class="form-control search_longitude_destino" name="longitudDestino">
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="ratio" id="ratio" value="1">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="mb-3">
+                                        <label for="distancia" class="form-label">Distancia (km)</label>
+                                        <input type="number" class="form-control" id="distancia" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingrese la distancia
+                                        </div>
+                                    </div>
+
+                                    <!-- Resumen de Costo -->
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Resumen de Costo</h6>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <p class="mb-1">Costo por distancia:</p>
+                                                    <h5 id="costoDistancia">$0.00</h5>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p class="mb-1">Recargo por tipo:</p>
+                                                    <h5 id="costoRecargo">$0.00</h5>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p class="mb-1">Costo total:</p>
+                                                    <h5 id="costoTotal">$0.00</h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="destino" class="form-label">Destino</label>
-                                    <input type="text" class="form-control search_location_destino" id="search_location_destino" name="destino" required>
-                                    <small id="searchLocation" class="form-text text-muted"><span class="search_addr_destino"></span></small>
-                                    <div class="invalid-feedback">
-                                        Por favor ingrese el destino
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="latitudDestino">Latitud:</label>
-                                                <input type="text" class="form-control search_latitude_destino" name="latitudDestino">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-label" for="longitudDestino">Longitud:</label>
-                                                <input type="text" class="form-control search_longitude_destino" name="longitudDestino">
-                                            </div>
-                                        </div>
-
-                                        <input type="hidden" name="ratio" id="ratio" value="1">
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="distancia" class="form-label">Distancia (km)</label>
-                                    <input type="number" class="form-control" id="distancia" required>
-                                    <div class="invalid-feedback">
-                                        Por favor ingrese la distancia
-                                    </div>
-                                </div>
-
-                                <!-- Resumen de Costo -->
-                                <div class="card bg-light mb-3">
-                                    <div class="card-body">
-                                        <h6 class="card-title">Resumen de Costo</h6>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <p class="mb-1">Costo por distancia:</p>
-                                                <h5 id="costoDistancia">$0.00</h5>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="mb-1">Recargo por tipo:</p>
-                                                <h5 id="costoRecargo">$0.00</h5>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="mb-1">Costo total:</p>
-                                                <h5 id="costoTotal">$0.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3"><div id="geomap"></div></div>
+                                    <div class="mb-3"><div id="geomap"></div></div>
 
                             </form>
                         </div>
@@ -512,15 +530,15 @@
                         $.each(response, function (index, item) {
                             console.log(item);
                             console.log(item.id);
-                            const producto = item.nombre + " - " + item.descripcion + " | " + item.peso+ " " + item.unidadMedida  
-                            $('#producto').append("<option value="+item.id+">" + producto + "</option>");
+                            const producto = item.nombre + " - " + item.descripcion + " | " + item.peso + " " + item.unidadMedida
+                            $('#producto').append("<option value=" + item.id + ">" + producto + "</option>");
                         });
                     },
                     error: function (xhr, status, error) {
                         console.error("Error al cargar los datos: " + error);
                     }
                 });
-                
+
                 $.ajax({
                     url: 'https://infoavance.com/FollowCargo/vehiculo?action=list', // Cambia esto por la ruta a tu backend
                     type: 'POST', // O 'POST' si el servidor lo requiere
@@ -534,8 +552,30 @@
 
                         // Iteramos sobre los datos y agregamos opciones al select
                         $.each(response, function (index, item) {
-                            const vehiculo = item.tipo + " - " + item.marca + " " + item.modelo+ " " + item.placa  
-                            $('#producto').append("<option value="+item.id+">" + vehiculo + "</option>");
+                            const vehiculo = item.tipo + " - " + item.marca + " " + item.modelo + " " + item.placa
+                            $('#vehiculo').append("<option value=" + item.id + " data-recargo=" + item.costoFijoViaje+">" + vehiculo + "</option>");
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error al cargar los datos: " + error);
+                    }
+                });
+                
+                $.ajax({
+                    url: 'https://infoavance.com/FollowCargo/conductores?action=list', // Cambia esto por la ruta a tu backend
+                    type: 'POST', // O 'POST' si el servidor lo requiere
+                    dataType: 'json', // El tipo de dato que esperas del servidor
+                    crossDomain: true, // Habilitar CORS
+                    success: function (response) {
+                        console.log(response);
+                        // Limpiamos el select antes de llenarlo
+                        $('#conductor').empty();
+                        $('#conductor').append('<option value="">Seleccione una opción</option>');
+
+                        // Iteramos sobre los datos y agregamos opciones al select
+                        $.each(response, function (index, item) {
+                            const conductor = item.nombres + " " + item.apellidos + " | " + item.email
+                            $('#conductor').append("<option value=" + item.id + ">" + conductor + "</option>");
                         });
                     },
                     error: function (xhr, status, error) {

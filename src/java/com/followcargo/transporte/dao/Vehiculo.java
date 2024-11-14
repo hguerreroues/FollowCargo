@@ -10,6 +10,9 @@ public class Vehiculo implements Serializable {
     private String modelo;
     private String placa;
     private String fechaCreacion;
+    
+    private int idConductor;
+    private double costoFijoViaje;
 
     public Vehiculo() {
     }
@@ -77,9 +80,25 @@ public class Vehiculo implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public int getIdConductor() {
+        return idConductor;
+    }
+
+    public void setIdConductor(int idConductor) {
+        this.idConductor = idConductor;
+    }
+
+    public double getCostoFijoViaje() {
+        return costoFijoViaje;
+    }
+
+    public void setCostoFijoViaje(double costoFijoViaje) {
+        this.costoFijoViaje = costoFijoViaje;
+    }
+
     @Override
     public String toString() {
-        return "Vehiculo{" + "id=" + id + ", tipo=" + tipo + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", fechaCreacion=" + fechaCreacion + '}';
+        return "Vehiculo{" + "id=" + id + ", tipo=" + tipo + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", fechaCreacion=" + fechaCreacion + ", idConductor=" + idConductor + ", costoFijoViaje=" + costoFijoViaje + '}';
     }
     
 }

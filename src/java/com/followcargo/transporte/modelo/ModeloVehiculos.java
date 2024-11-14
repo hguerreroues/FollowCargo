@@ -1,14 +1,11 @@
 package com.followcargo.transporte.modelo;
 
-import com.followcargo.transporte.dao.Dimensiones;
-import com.followcargo.transporte.dao.Producto;
 import com.followcargo.transporte.dao.Vehiculo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -44,10 +41,14 @@ public class ModeloVehiculos {
                 String marca = rs.getString("marca");
                 String modelo = rs.getString("modelo");
                 String placa = rs.getString("placa");
+                int idConductor = rs.getInt("id_conductor_asignado");
+                double costoFijoViaje = rs.getDouble("costo_fijo_viaje");
                 String fechaCreacion = rs.getString("fecha_creacion");
 
                 vehiculo = new Vehiculo(idVehiculo, tipo, marca, modelo, placa);
                 vehiculo.setFechaCreacion(fechaCreacion);
+                vehiculo.setIdConductor(idConductor);
+                vehiculo.setCostoFijoViaje(costoFijoViaje);
             }
 
         } catch (Exception ex) {
@@ -94,10 +95,14 @@ public class ModeloVehiculos {
                 String marca = rs.getString("marca");
                 String modelo = rs.getString("modelo");
                 String placa = rs.getString("placa");
+                int idConductor = rs.getInt("id_conductor_asignado");
+                double costoFijoViaje = rs.getDouble("costo_fijo_viaje");
                 String fechaCreacion = rs.getString("fecha_creacion");
 
                 vehiculo = new Vehiculo(idVehiculo, tipo, marca, modelo, placa);
                 vehiculo.setFechaCreacion(fechaCreacion);
+                vehiculo.setIdConductor(idConductor);
+                vehiculo.setCostoFijoViaje(costoFijoViaje);
                 listaVehiculo.add(vehiculo);
 
             }
@@ -137,7 +142,7 @@ public class ModeloVehiculos {
 
             con = dataSource.getConnection();
 
-            String sql = "INSERT INTO vehiculo(tipo, marca, modelo, placa) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO vehiculo(tipo, marca, modelo, placa, id_conductor_asignado, costo_fijo_viaje) VALUES (?,?,?,?,?,?)";
             ps = con.prepareStatement(sql);
 
             ps = con.prepareStatement(sql, ps.RETURN_GENERATED_KEYS);
@@ -146,6 +151,8 @@ public class ModeloVehiculos {
             ps.setString(i++, vehiculo.getMarca());
             ps.setString(i++, vehiculo.getModelo());
             ps.setString(i++, vehiculo.getPlaca());
+            ps.setInt(i++, vehiculo.getIdConductor());
+            ps.setDouble(i++, vehiculo.getCostoFijoViaje());
 
             int row = ps.executeUpdate();
 

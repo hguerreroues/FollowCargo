@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>ControladorRutas</servlet-name>
-        <servlet-class>com.followcargo.transporte.controlador.ControlladorRutas</servlet-class>
+        <servlet-class>com.followcargo.transporte.controlador.ControladorRutas</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorProducto</servlet-name>

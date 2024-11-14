@@ -129,5 +129,77 @@ public class ModeloConductores {
         return listaConductores;
 
     }
+    
+    
+    public boolean addConductor(Conductor conductor, String username) throws SQLException {
+
+        boolean flag = false;
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        int lastInsertId = 0;
+
+        int i = 1;
+
+        try {
+
+            con = dataSource.getConnection();
+
+            String sql = "INSERT INTO conductores(nombres, apellidos, licencia, fecha_licencia, vencimiento_licencia, telefono, email) VALUES (?,?,?,?,?,?,?)";
+            ps = con.prepareStatement(sql);
+
+            ps = con.prepareStatement(sql, ps.RETURN_GENERATED_KEYS);
+
+            ps.setString(i++, conductor.getNombres());
+            ps.setString(i++, conductor.getApellidos());
+            ps.setString(i++, conductor.getLicencia());
+            ps.setString(i++, conductor.getFechaLicencia());
+            ps.setString(i++, conductor.getVencimientoLicencia());
+            ps.setString(i++, conductor.getTelefono());
+            ps.setString(i++, conductor.getEmail());
+
+            int row = ps.executeUpdate();
+
+            if (row > 0) {
+
+                try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        lastInsertId = (int) generatedKeys.getLong(1); // Obtener el último ID insertado
+                    }
+                }
+
+                conductor.setId(lastInsertId);
+
+                sql = "INSERT INTO logs (usuario, procedimiento, detalle_procedimiento) VALUES (?,?,?)";
+
+                ps = con.prepareStatement(sql);
+                ps.setString(1, username);
+                ps.setString(2, "INSERT INTO vehiculo");
+                ps.setString(3, conductor.toString());
+                ps.execute();
+
+                flag = true;
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+
+        }
+
+        return flag;
+
+    }
 
 }

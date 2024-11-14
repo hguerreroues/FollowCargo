@@ -3,7 +3,9 @@ package com.followcargo.transporte.controlador;
 import com.followcargo.transporte.dao.Conductor;
 import com.followcargo.transporte.modelo.ModeloConductores;
 import com.google.gson.Gson;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 @WebServlet(name = "ControladorCondutores", urlPatterns = {"/Condutores", "/condutores"})
@@ -68,6 +71,10 @@ public class ControladorConductores extends HttpServlet {
                 getConductor(request, response);
                 break;
 
+            case "add":
+                addConductor(request, response);
+                break;
+
         }
 
     }
@@ -76,7 +83,7 @@ public class ControladorConductores extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        
+
         // Configuración CORS
         response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
@@ -101,7 +108,7 @@ public class ControladorConductores extends HttpServlet {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        
+
         // Configuración CORS
         response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
@@ -116,6 +123,43 @@ public class ControladorConductores extends HttpServlet {
             conductor = modeloConductores.getConductor(id);
 
             String json = new Gson().toJson(conductor);
+
+            response.getWriter().write(json);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private void addConductor(HttpServletRequest request, HttpServletResponse response) {
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        // Configuración CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permitir cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Encabezados permitidos
+
+        Conductor conductor = null;
+
+        boolean flag = false;
+
+        Gson gson = new Gson();
+
+        try {
+
+            InputStream in = new BufferedInputStream(request.getInputStream());
+
+            String result = IOUtils.toString(in, "UTF-8");
+
+            conductor = gson.fromJson(result, Conductor.class);
+
+            String usuario = request.getParameter("usuario");
+
+            flag = modeloConductores.addConductor(conductor, usuario);
+
+            String json = new Gson().toJson(flag);
 
             response.getWriter().write(json);
 
