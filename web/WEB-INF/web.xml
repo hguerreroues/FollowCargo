@@ -13,6 +13,22 @@
         <jsp-file>/reportes/listado-vehiculos.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>ListConductores</servlet-name>
+        <jsp-file>/WEB-INF/jsp/conductores/listado-conductores.jsp</jsp-file>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>ListConductores</servlet-name>
+        <url-pattern>/conductores</url-pattern>
+    </servlet-mapping>
+    <servlet>
+      <servlet-name>FormConductores</servlet-name>
+      <jsp-file>/WEB-INF/jsp/conductores/formulario-conductores.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>FormConductores</servlet-name>
+      <url-pattern>/conductores-form</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>CreateRoute</servlet-name>
         <jsp-file>/crear-ruta.jsp</jsp-file>
     </servlet>
