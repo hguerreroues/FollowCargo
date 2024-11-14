@@ -21,7 +21,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="dashboard" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Dashboard</span>
                     </a>
@@ -29,21 +29,21 @@
                
 
                 <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+                    <i class="ti ti-dots nav-small-cap-icon fs-8"></i>
                     <span class="hide-menu">RUTAS</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="rutas" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
-                        </span>
+                            <iconify-icon icon="emojione-monotone:delivery-truck" class="fs-8"></iconify-icon>
+                            </span>
                         <span class="hide-menu">Listado de rutas</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="crear-ruta" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="gis:route"></iconify-icon>
+                            <iconify-icon icon="gis:route" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Crear ruta</span>
                     </a>
@@ -57,7 +57,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="vehiculos" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="fontisto:truck" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Listado vehiculos</span>
                     </a>
@@ -66,7 +66,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="#" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="healthicons:truck-driver" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Listado conductores</span>
                     </a>

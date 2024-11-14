@@ -277,7 +277,7 @@ const initDataTable = async () => {
 
   await listRutas();
 
-  dataTable = $('#example').DataTable(dataTableOptions);
+  dataTable = $('#rutasDashboard').DataTable(dataTableOptions);
 
   dataTableIsInitialized = true;
 };

@@ -51,7 +51,7 @@
                                 <h5 class="card-title d-flex align-items-center gap-2 mb-4">
                                     
                                     <!-- Inicia tabla-->
-                                    <table id="example" class="table table-striped" style="width: 100%">
+                                    <table id="rutasDashboard" class="table table-striped" style="width: 100%">
                                         <caption>
                                           Tabla de rutas
                                         </caption>
@@ -258,7 +258,7 @@
 
     <!-- Archivos de configuración personalizados -->
     <script src="assets/js/dashboard.js"></script>
-    <script src="include/tablaRutas.js"></script>
+    <script src="assets/js/tablaRutas.js"></script>
     
 </body>
 
