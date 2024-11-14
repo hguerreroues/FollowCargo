@@ -27,7 +27,7 @@ let dataTableOptions = {
   ],
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: 'centered', targets: [0, 1, 2, 3, 4, 5, 6, 7] },
+    { className: 'centered', targets: [8] },
     { orderable: false, targets: [0, 2, 3] },
     { width: '3%', targets: [1] }
   ],
@@ -301,9 +301,13 @@ const listRutas = async () => {
                     <td> ${ruta.origen} </td>
                     <td> ${ruta.destino} </td>
                     <td>${nombresProductos}</td>
-                    <td> ${ruta.viaje.costo} </td>
-                    <td> ${ruta.distancia} </td>
+                    <td> $${ruta.viaje.costo} </td>
+                    <td> ${ruta.distancia} km</td>
                     <td> ${ruta.viaje.estado} </td>
+                    <td>
+                    <button class="btn btn-sm btn-primary" onclick="redirectToDetail(${ruta.id})">
+                    <i class="fa-solid fa-eye"></i></button>
+                    </td>
                 </tr>`;
     });
     table_rutas.innerHTML = content;
@@ -311,6 +315,11 @@ const listRutas = async () => {
   } catch (error) {
     alert(error);
   }
+};
+
+// Función para redirigir al detalle de la ruta
+const redirectToDetail = (id) => {
+  window.location.href = `/FollowCargo/rutas?id=${id}`;
 };
 
 window.addEventListener('load', async () => {

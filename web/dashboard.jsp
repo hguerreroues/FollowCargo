@@ -65,6 +65,7 @@
                                             <th>Costo</th>
                                             <th>Distancia</th>
                                             <th>Estado</th>
+                                            <th>Detalle</th>                                            
                                           </tr>
                                         </thead>
                                         <tbody id="table_rutas"></tbody>
