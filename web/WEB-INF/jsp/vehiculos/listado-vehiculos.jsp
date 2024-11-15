@@ -72,7 +72,7 @@
                                         <a href="dashboard" class="btn btn-secondary me-2">
                                             <i class="ti ti-arrow-left"></i> Dashboard
                                         </a>
-                                        <a href="#" class="btn btn-primary">
+                                        <a href="vehiculos-form?id=add" class="btn btn-primary">
                                             <i class="ti ti-plus"></i> Nuevo Vehiculo
                                         </a>
                                     </div>

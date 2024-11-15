@@ -25,12 +25,12 @@ let dataTableOptions = {
       className: 'btn btn-info'
     }
   ],
-  lengthMenu: [5, 10, 15, 20, 100, 200, 500],
+  
   columnDefs: [
     { orderable: false, targets: [0, 2, 3] },
-    { width: '3%', targets: [1,7] }
+    { width: '3%', targets: [1,8] }
   ],
-  pageLength: 2,
+  pageLength: 5,
   destroy: true,
    language: {
     processing: 'Procesando...',
@@ -329,7 +329,7 @@ const listVehiculos = async () => {
 
 // Función para redirigir al detalle del vehículo
 const redirectToDetail = (id) => {
-  window.location.href = `/FollowCargo/vehiculos?id=${id}`;
+  window.location.href = `/FollowCargo/vehiculos-form?id=${id}`;
 };
 
 

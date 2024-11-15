@@ -8,10 +8,7 @@
         <servlet-name>Dashboard</servlet-name>
         <jsp-file>/dashboard.jsp</jsp-file>
     </servlet>
-    <servlet>
-        <servlet-name>ListVehicle</servlet-name>
-        <jsp-file>/reportes/listado-vehiculos.jsp</jsp-file>
-    </servlet>
+
     <servlet>
         <servlet-name>ListConductores</servlet-name>
         <jsp-file>/WEB-INF/jsp/conductores/listado-conductores.jsp</jsp-file>
@@ -57,14 +54,27 @@
         <url-pattern>/Usuario</url-pattern>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+
+        <servlet>
+        <servlet-name>ListVehicle</servlet-name>
+        <jsp-file>/WEB-INF/jsp/vehiculos/listado-vehiculos.jsp</jsp-file>
+    </servlet>
+        <servlet-mapping>
         <servlet-name>ListVehicle</servlet-name>
         <url-pattern>/vehiculos</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>FormVehicle</servlet-name>
+        <jsp-file>/WEB-INF/jsp/vehiculos/formulario-Vehiculo.jsp</jsp-file>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>FormVehicle</servlet-name>
+        <url-pattern>/vehiculos-form</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListTrips</servlet-name>
         <url-pattern>/rutas</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>   
     <servlet-mapping>
         <servlet-name>CreateRoute</servlet-name>
         <url-pattern>/crear-ruta</url-pattern>
