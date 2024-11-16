@@ -44,11 +44,16 @@ public class ModeloVehiculos {
                 int idConductor = rs.getInt("id_conductor_asignado");
                 double costoFijoViaje = rs.getDouble("costo_fijo_viaje");
                 String fechaCreacion = rs.getString("fecha_creacion");
+                
+                double tarifaPeso = rs.getDouble("costo_peso");
+                double tarifaKm = rs.getDouble("costo_km");
 
                 vehiculo = new Vehiculo(idVehiculo, tipo, marca, modelo, placa);
                 vehiculo.setFechaCreacion(fechaCreacion);
                 vehiculo.setIdConductor(idConductor);
                 vehiculo.setCostoFijoViaje(costoFijoViaje);
+                vehiculo.setTarifaPeso(tarifaPeso);
+                vehiculo.setTarifaKm(tarifaKm);
             }
 
         } catch (Exception ex) {
@@ -98,11 +103,17 @@ public class ModeloVehiculos {
                 int idConductor = rs.getInt("id_conductor_asignado");
                 double costoFijoViaje = rs.getDouble("costo_fijo_viaje");
                 String fechaCreacion = rs.getString("fecha_creacion");
+                
+                double tarifaPeso = rs.getDouble("costo_peso");
+                double tarifaKm = rs.getDouble("costo_km");
 
                 vehiculo = new Vehiculo(idVehiculo, tipo, marca, modelo, placa);
                 vehiculo.setFechaCreacion(fechaCreacion);
                 vehiculo.setIdConductor(idConductor);
                 vehiculo.setCostoFijoViaje(costoFijoViaje);
+                vehiculo.setTarifaPeso(tarifaPeso);
+                vehiculo.setTarifaKm(tarifaKm);
+
                 listaVehiculo.add(vehiculo);
 
             }

@@ -185,7 +185,7 @@ public class ModeloProductos {
 
                 ps = con.prepareStatement(sql);
                 ps.setString(1, username);
-                ps.setString(2, "INSERT INTO vehiculo");
+                ps.setString(2, "INSERT INTO producto");
                 ps.setString(3, producto.toString());
                 ps.execute();
 

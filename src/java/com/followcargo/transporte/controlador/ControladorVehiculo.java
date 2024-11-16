@@ -139,6 +139,9 @@ public class ControladorVehiculo extends HttpServlet {
 
         Vehiculo vehiculo = null;
         
+        int idConductor = 0;
+        double costoFijoViaje = 0;
+        
         boolean flag = false;
 
         try {
@@ -147,9 +150,19 @@ public class ControladorVehiculo extends HttpServlet {
             String marca = request.getParameter("marca");
             String modelo = request.getParameter("modelo");
             String placa = request.getParameter("placa");
+            String conductorId = request.getParameter("idConductor");
+            if(!StringUtils.isBlank(conductorId)) {
+                idConductor = Integer.parseInt(conductorId);
+            }
+            String costoViaje = request.getParameter("costoFijoViaje");
+            if(!StringUtils.isBlank(costoViaje)) {
+                costoFijoViaje = Double.parseDouble(costoViaje);
+            }
             String username = request.getParameter("usuario");
             
             vehiculo = new Vehiculo(tipo, marca, modelo, placa);
+            vehiculo.setIdConductor(idConductor);
+            vehiculo.setCostoFijoViaje(costoFijoViaje);
 
             flag = modeloVehiculo.addVehiculo(vehiculo, username);
 
