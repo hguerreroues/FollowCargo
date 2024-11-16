@@ -21,7 +21,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="dashboard" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Dashboard</span>
                     </a>
@@ -29,21 +29,21 @@
                
 
                 <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+                    <i class="ti ti-dots nav-small-cap-icon fs-8"></i>
                     <span class="hide-menu">RUTAS</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="listado-rutas" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
-                        </span>
+                            <iconify-icon icon="emojione-monotone:delivery-truck" class="fs-8"></iconify-icon>
+                            </span>
                         <span class="hide-menu">Listado de rutas</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="crear-ruta" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="gis:route"></iconify-icon>
+                            <iconify-icon icon="gis:route" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Crear ruta</span>
                     </a>
@@ -57,16 +57,16 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="vehiculos" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="fontisto:truck" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Listado vehiculos</span>
                     </a>
                 </li>
                 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
+                    <a class="sidebar-link" href="conductores" aria-expanded="false">
                         <span>
-                            <iconify-icon icon="solar:bus-line-duotone" class="fs-6"></iconify-icon>
+                            <iconify-icon icon="healthicons:truck-driver" class="fs-8"></iconify-icon>
                         </span>
                         <span class="hide-menu">Listado conductores</span>
                     </a>
@@ -91,12 +91,12 @@
                         <i class="ti ti-menu-2"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                         <i class="ti ti-bell-ringing"></i>
                         <div class="notification bg-primary rounded-circle"></div>
                     </a>
-                </li>
+                </li>-->
             </ul>
             <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -107,7 +107,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                             <div class="message-body">
-                                <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+<!--                                <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                     <i class="ti ti-user fs-6"></i>
                                     <p class="mb-0 fs-3">Mi Perfil</p>
                                 </a>
@@ -118,7 +118,7 @@
                                 <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                     <i class="ti ti-list-check fs-6"></i>
                                     <p class="mb-0 fs-3">Mis Tareas</p>
-                                </a>
+                                </a>-->
                                 <a class="btn btn-outline-primary mx-3 mt-2 d-block" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                     Cerrar sesión</a>
                             </div>
