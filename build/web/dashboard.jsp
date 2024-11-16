@@ -146,7 +146,7 @@
                                 <img src="assets/images/logos/Logo-cuadrado.png" alt="image" class="img-fluid" width="138">
                                 <h4 class="mt-7">Mira nuestro video de Youtube!</h4>
                                 <p class="card-subtitle mt-2 mb-3">Donde explicamos el funcionamiento de nuestro sistema</p>
-                                <button class="btn btn-primary mb-3" onclick="window.open('https://www.youtube.com/watch?v=hu4uJjQWacY', '_blank')">
+                                <button class="btn btn-primary mb-3" onclick="window.open('https://youtu.be/M6IXQZdBGGs', '_blank')">
                                     Ver en Youtube
                                 </button>
                             </div>
