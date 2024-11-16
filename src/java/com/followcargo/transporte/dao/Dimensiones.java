@@ -1,13 +1,14 @@
-
 package com.followcargo.transporte.dao;
 
 import java.io.Serializable;
 
 public class Dimensiones implements Serializable {
-    
+
     private double alto;
     private double ancho;
     private double largo;
+
+    private double dimensionTotal;
 
     public Dimensiones() {
     }
@@ -42,9 +43,17 @@ public class Dimensiones implements Serializable {
         this.largo = largo;
     }
 
+    public double getDimensionTotal() {
+        return dimensionTotal;
+    }
+
+    public void setDimensionTotal(double dimensionTotal) {
+        this.dimensionTotal = dimensionTotal;
+    }
+
     @Override
     public String toString() {
         return "Dimensiones{" + "alto=" + alto + ", ancho=" + ancho + ", largo=" + largo + '}';
     }
-    
+
 }
