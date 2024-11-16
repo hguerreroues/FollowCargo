@@ -292,6 +292,10 @@ const listRutas = async () => {
       const nombresProductos = ruta.viaje.listaProductos
         .map(producto => producto.nombre)
         .join(', ');
+
+    // Calcular el costo total sumando los precios de todos los productos
+      const costoTotal = ruta.viaje.listaProductos
+        .reduce((total, producto) => total + producto.precio, 0);    
 // Crear una fila para cada ruta y añadir los nombres de los productos
       content += `
                 <tr>
@@ -300,7 +304,7 @@ const listRutas = async () => {
                     <td> ${ruta.origen} </td>
                     <td> ${ruta.destino} </td>
                     <td>${nombresProductos}</td>
-                    <td> $${ruta.viaje.costo} </td>
+                     <td> $${costoTotal.toFixed(2)} </td> <!-- Mostrar el costo total -->
                     <td> ${ruta.distancia} km</td>
                     <td> ${ruta.viaje.estado} </td>
                     
