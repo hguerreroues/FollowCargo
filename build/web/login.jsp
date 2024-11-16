@@ -41,9 +41,9 @@
                                             </div>
                                         </c:if>
 
-                                        <div class="d-flex align-items-center justify-content-between mb-4">
+<!--                                        <div class="d-flex align-items-center justify-content-between mb-4">
                                             <a class="text-primary fw-bold" href="#">Olvidaste tu contaseña?</a>
-                                        </div>
+                                        </div>-->
                                         <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4" onclick="getSha(); form.submit()">Iniciar Sesión</button>
                                         <div class="d-flex align-items-center justify-content-center">
                                             <%
