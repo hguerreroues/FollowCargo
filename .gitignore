@@ -81,7 +81,8 @@ nb-configuration.xml
 ##############################
 ## OS X
 ##############################
-.DS_Store# NetBeans specific #
+.DS_Store 
+# NetBeans specific #
 nbproject/private/
 build/
 nbbuild/
@@ -103,7 +104,6 @@ nbproject/ant-deploy.xml
 nbproject/private/private.properties
 nbproject/private/private.xml
 nbproject/project.properties
-
-build/web/WEB-INF/classes/com/followcargo/transporte/controlador/ControladorUsuario.class
-build/web/WEB-INF/classes/com/followcargo/transporte/dao/Usuario.class
-web/META-INF/context.xml
+build/web/html/*
+/build/web/WEB-INF/classes
+/build/web/WEB-INF

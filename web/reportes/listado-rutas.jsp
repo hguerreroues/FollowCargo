@@ -74,30 +74,28 @@
                 <!-- Contenedor para la tabla y mensaje de no registros -->
                 <div class="table-section">
                     <!-- Mensaje de no registros (inicialmente oculto) -->
-                    <div id="noRecordsMessage" class="no-records-message" style="display: none;">
+                    <!-- <div id="noRecordsMessage" class="no-records-message" style="display: none;">
                         <i class="ti ti-clipboard-x"></i>
                         <h4>No hay Rutas registradas</h4>
                         <p>Comienza creando una nueva ruta usando el botón "Nueva Ruta"</p>
-                    </div>
+                    </div> -->
 
                     <!-- Tabla (se mostrará/ocultará según haya registros) -->
-                    <div id="tripsTableContainer" class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Vehículo</th>
-                                    <th>Origen</th>
-                                    <th>Destino</th>
-                                    <th>Costo</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tripsTableBody">
-                            </tbody>
-                        </table>
-                    </div>
+                    <table id="rutasDashboard" class="table table-striped" style="width: 100%">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>#</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Producto</th>
+                            <th>Costo</th>
+                            <th>Distancia</th>
+                            <th>Estado</th>                                         
+                          </tr>
+                        </thead>
+                        <tbody id="table_rutas"></tbody>
+                      </table>
                 </div>
             </div>
         </div>
@@ -149,6 +147,8 @@
 
     <!-- Scripts -->
     <script src="assets/js/rutas/viaje-list.js"></script>
+    <script src="assets/js/tablaRutas.js"></script>
+
     <!-- Menu-->
     <jsp:include page="include/modal.jsp"/>
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>

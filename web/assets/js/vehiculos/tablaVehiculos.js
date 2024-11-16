@@ -28,7 +28,7 @@ let dataTableOptions = {
   
   columnDefs: [
     { orderable: false, targets: [0, 2, 3] },
-    { width: '3%', targets: [1,8] }
+    { width: '3%', targets: [0,1,8] }
   ],
   pageLength: 5,
   destroy: true,
@@ -293,7 +293,7 @@ const listVehiculos = async () => {
 
     // Crear un diccionario de conductores para acceder fácilmente por ID
     const conductoresMap = conductores.reduce((map, conductor) => {
-      map[conductor.id] = conductor.nombres;
+      map[conductor.id] = conductor.nombres+' '+conductor.apellidos;
       return map;
     }, {});
 

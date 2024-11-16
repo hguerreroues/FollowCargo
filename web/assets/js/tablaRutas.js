@@ -31,7 +31,7 @@ let dataTableOptions = {
     { orderable: false, targets: [0, 2, 3] },
     { width: '3%', targets: [1] }
   ],
-  pageLength: 2,
+  pageLength: 5,
   destroy: true,
    language: {
     processing: 'Procesando...',

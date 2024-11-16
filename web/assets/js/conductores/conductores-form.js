@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formTitle.textContent = 'Editar Conductor';
         submitBtnText.textContent = 'Actualizar';
         cargarDatosConductor(conductorId);
+        submitBtn.style.display = 'none';
     } else {
         formTitle.textContent = 'Nuevo Conductor';
         submitBtnText.textContent = 'Crear';
@@ -46,28 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
             // Deshabilitar el botón de submit mientras se procesa
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-            
-            // Preparar los datos del conductor
-            const conductorData = {
-                nombres: document.getElementById('nombres').value.trim(),
-                apellidos: document.getElementById('apellidos').value.trim(),
-                telefono: telefono,
-                email: document.getElementById('email').value.trim(),
-                licencia: formatearLicencia(document.getElementById('licencia').value.replace(/[^\d]/g, '')),
-                fechaLicencia: document.getElementById('fechaLicencia').value,
-                vencimientoLicencia: document.getElementById('vencimientoLicencia').value,
-                estado: document.getElementById('estado').value,
-                ubicacionActual: "",
-                idUltimaRuta: 1
-            };
 
             try {
-                const response = await fetch('https://infoavance.com/FollowCargo/conductores?action=add&usuario=User', {
+                const response = await fetch('https://infoavance.com/FollowCargo/conductores?action=add&usuario=admin', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: JSON.stringify(conductorData)
+                    body: new URLSearchParams({
+                        nombres: document.getElementById('nombres').value.trim(),
+                        apellidos: document.getElementById('apellidos').value.trim(),
+                        telefono: telefono,
+                        email: document.getElementById('email').value.trim(),
+                        licencia: formatearLicencia(document.getElementById('licencia').value.replace(/[^\d]/g, '')),
+                        fechaLicencia: document.getElementById('fechaLicencia').value,
+                        vencimientoLicencia: document.getElementById('vencimientoLicencia').value,
+                        estado: document.getElementById('estado').value,
+                        ubicacionActual: "San Salvador",
+                        idUltimaRuta: 2
+                    })
                 });
 
                 if (response.ok) {
@@ -81,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error('Error:', error);
                 mostrarAlerta('Error al guardar los datos del conductor', 'danger');
+            } finally {
                 submitBtn.disabled = false;
             }
         });
@@ -136,6 +135,7 @@ function inicializarMascaras() {
     inputLicencia.placeholder = "0000-000000-000-0";
 }
 
+// Función para mostrar alertas
 function mostrarAlerta(mensaje, tipo) {
     const alertaDiv = document.createElement('div');
     alertaDiv.className = `alert alert-${tipo} alert-dismissible fade show`;
@@ -153,9 +153,12 @@ function mostrarAlerta(mensaje, tipo) {
     }, 5000);
 }
 
+// Función para cargar datos del conductor
 async function cargarDatosConductor(id) {
     try {
-        const response = await fetch(`https://infoavance.com/FollowCargo/conductores?action=get&id=${id}`);
+        const response = await fetch(`https://infoavance.com/FollowCargo/conductores?id=${id}&action=get`, {
+            method: 'POST'
+        });
         if (!response.ok) {
             throw new Error('Error al cargar los datos del conductor');
         }
