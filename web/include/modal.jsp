@@ -18,7 +18,7 @@
             <div class="modal-body">Seleccione "Salir" si estas listo para cerrar la sesión actual.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="Dashboard?action=logout">Logout</a>
+                <a class="btn btn-primary" href="/FollowCargo/">Logout</a>
             </div>
         </div>
     </div>
