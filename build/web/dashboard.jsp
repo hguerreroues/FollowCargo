@@ -64,8 +64,7 @@
                                             <th>Producto</th>
                                             <th>Costo</th>
                                             <th>Distancia</th>
-                                            <th>Estado</th>
-                                            <th>Detalle</th>                                            
+                                            <th>Estado</th>                                                                                      
                                           </tr>
                                         </thead>
                                         <tbody id="table_rutas"></tbody>
@@ -178,8 +177,7 @@
 
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="assets/js/sidebarmenu.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/app.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
     <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
     

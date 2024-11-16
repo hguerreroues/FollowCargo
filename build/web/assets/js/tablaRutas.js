@@ -27,7 +27,6 @@ let dataTableOptions = {
   ],
   lengthMenu: [5, 10, 15, 20, 100, 200, 500],
   columnDefs: [
-    { className: 'centered', targets: [8] },
     { orderable: false, targets: [0, 2, 3] },
     { width: '3%', targets: [1] }
   ],
@@ -304,10 +303,7 @@ const listRutas = async () => {
                     <td> $${ruta.viaje.costo} </td>
                     <td> ${ruta.distancia} km</td>
                     <td> ${ruta.viaje.estado} </td>
-                    <td>
-                    <button class="btn btn-sm btn-primary" onclick="redirectToDetail(${ruta.id})">
-                    <i class="fa-solid fa-eye"></i></button>
-                    </td>
+                    
                 </tr>`;
     });
     table_rutas.innerHTML = content;
@@ -318,9 +314,9 @@ const listRutas = async () => {
 };
 
 // Función para redirigir al detalle de la ruta
-const redirectToDetail = (id) => {
-  window.location.href = `/FollowCargo/rutas?id=${id}`;
-};
+//const redirectToDetail = (id) => {
+//  window.location.href = `/FollowCargo/conductores-form?id=${id}`;
+//};
 
 window.addEventListener('load', async () => {
   await initDataTable();

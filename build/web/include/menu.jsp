@@ -32,14 +32,14 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-8"></i>
                     <span class="hide-menu">RUTAS</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="rutas" aria-expanded="false">
+<!--                <li class="sidebar-item">
+                    <a class="sidebar-link" href="listado-rutas" aria-expanded="false">
                         <span>
                             <iconify-icon icon="emojione-monotone:delivery-truck" class="fs-8"></iconify-icon>
                             </span>
                         <span class="hide-menu">Listado de rutas</span>
                     </a>
-                </li>
+                </li>-->
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="crear-ruta" aria-expanded="false">
                         <span>
@@ -64,7 +64,7 @@
                 </li>
                 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="conductores" aria-expanded="false">
+                    <a class="sidebar-link" href="/FollowCargo/lista-conductores" aria-expanded="false">
                         <span>
                             <iconify-icon icon="healthicons:truck-driver" class="fs-8"></iconify-icon>
                         </span>
