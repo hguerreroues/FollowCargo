@@ -8,7 +8,6 @@
         <servlet-name>Dashboard</servlet-name>
         <jsp-file>/dashboard.jsp</jsp-file>
     </servlet>
-
     <servlet>
         <servlet-name>ControladorRutas</servlet-name>
         <servlet-class>com.followcargo.transporte.controlador.ControladorRutas</servlet-class>
@@ -25,17 +24,17 @@
         <servlet-name>ListConductores</servlet-name>
         <jsp-file>/WEB-INF/jsp/conductores/listado-conductores.jsp</jsp-file>
     </servlet>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListConductores</servlet-name>
-        <url-pattern>/conductores</url-pattern>
+        <url-pattern>/lista-conductores</url-pattern>
     </servlet-mapping>
     <servlet>
-      <servlet-name>FormConductores</servlet-name>
-      <jsp-file>/WEB-INF/jsp/conductores/formulario-conductores.jsp</jsp-file>
+        <servlet-name>FormConductores</servlet-name>
+        <jsp-file>/WEB-INF/jsp/conductores/formulario-conductores.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-      <servlet-name>FormConductores</servlet-name>
-      <url-pattern>/conductores-form</url-pattern>
+        <servlet-name>FormConductores</servlet-name>
+        <url-pattern>/conductores-form</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateRoute</servlet-name>
@@ -64,19 +63,19 @@
         <url-pattern>/Usuario</url-pattern>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-        <servlet>
+    <servlet>
         <servlet-name>ListVehicle</servlet-name>
         <jsp-file>/WEB-INF/jsp/vehiculos/listado-vehiculos.jsp</jsp-file>
     </servlet>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListVehicle</servlet-name>
         <url-pattern>/vehiculos</url-pattern>
     </servlet-mapping>
-        <servlet>
+    <servlet>
         <servlet-name>FormVehicle</servlet-name>
         <jsp-file>/WEB-INF/jsp/vehiculos/formulario-Vehiculo.jsp</jsp-file>
     </servlet>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>FormVehicle</servlet-name>
         <url-pattern>/vehiculos-form</url-pattern>
     </servlet-mapping>
@@ -84,11 +83,6 @@
         <servlet-name>CreateRoute</servlet-name>
         <url-pattern>/crear-ruta</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControladorRutas</servlet-name>
-        <url-pattern>/Rutas</url-pattern>
-        <url-pattern>/rutas</url-pattern>
-    </servlet-mapping>   
     <servlet-mapping>
         <servlet-name>ControladorProducto</servlet-name>
         <url-pattern>/Producto</url-pattern>
@@ -102,6 +96,11 @@
     <servlet-mapping>
         <servlet-name>ListTrips</servlet-name>
         <url-pattern>/listado-rutas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRutas</servlet-name>
+        <url-pattern>/rutas</url-pattern>
+        <url-pattern>/Rutas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
