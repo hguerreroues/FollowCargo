@@ -8,7 +8,6 @@
         <servlet-name>Dashboard</servlet-name>
         <jsp-file>/dashboard.jsp</jsp-file>
     </servlet>
-
     <servlet>
         <servlet-name>ListConductores</servlet-name>
         <jsp-file>/WEB-INF/jsp/conductores/listado-conductores.jsp</jsp-file>
@@ -33,7 +32,6 @@
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
-    <!-- Inicio de Planificación de Rutas -->
     <servlet>
         <servlet-name>CreateTrip</servlet-name>
         <jsp-file>/WEB-INF/jsp/rutas/crear-viaje.jsp</jsp-file>
@@ -46,7 +44,6 @@
         <servlet-name>ListTrips</servlet-name>
         <jsp-file>/reportes/listado-rutas.jsp</jsp-file>
     </servlet>
-    <!-- Fin Planificación de Rutas -->
     <servlet-mapping>
         <servlet-name>ControladorUsuario</servlet-name>
         <url-pattern>/usuario</url-pattern>
@@ -54,7 +51,6 @@
         <url-pattern>/Usuario</url-pattern>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-
         <servlet>
         <servlet-name>ListVehicle</servlet-name>
         <jsp-file>/WEB-INF/jsp/vehiculos/listado-vehiculos.jsp</jsp-file>
