@@ -10,6 +10,12 @@ public class Vehiculo implements Serializable {
     private String modelo;
     private String placa;
     private String fechaCreacion;
+    
+    private int idConductor;
+    private double costoFijoViaje;
+    
+    private double tarifaPeso;
+    private double tarifaKm;
 
     public Vehiculo() {
     }
@@ -22,6 +28,13 @@ public class Vehiculo implements Serializable {
         this.placa = placa;
     }
 
+    public Vehiculo(String tipo, String marca, String modelo, String placa) {
+        this.tipo = tipo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.placa = placa;
+    }
+    
     public int getId() {
         return id;
     }
@@ -70,9 +83,41 @@ public class Vehiculo implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public int getIdConductor() {
+        return idConductor;
+    }
+
+    public void setIdConductor(int idConductor) {
+        this.idConductor = idConductor;
+    }
+
+    public double getCostoFijoViaje() {
+        return costoFijoViaje;
+    }
+
+    public void setCostoFijoViaje(double costoFijoViaje) {
+        this.costoFijoViaje = costoFijoViaje;
+    }
+
+    public double getTarifaPeso() {
+        return tarifaPeso;
+    }
+
+    public void setTarifaPeso(double tarifaPeso) {
+        this.tarifaPeso = tarifaPeso;
+    }
+
+    public double getTarifaKm() {
+        return tarifaKm;
+    }
+
+    public void setTarifaKm(double tarifaKm) {
+        this.tarifaKm = tarifaKm;
+    }
+
     @Override
     public String toString() {
-        return "Vehiculo{" + "id=" + id + ", tipo=" + tipo + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", fechaCreacion=" + fechaCreacion + '}';
+        return "Vehiculo{" + "id=" + id + ", tipo=" + tipo + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", fechaCreacion=" + fechaCreacion + ", idConductor=" + idConductor + ", costoFijoViaje=" + costoFijoViaje + ", tarifaPeso=" + tarifaPeso + ", tarifaKm=" + tarifaKm + '}';
     }
     
 }

@@ -7,30 +7,32 @@ public class Viaje implements Serializable {
     
     private int id;
     private int idVehiculo;
-    private int idRuta;
+    private int idConductor;
     private List<Producto> listaProductos;
-    private List<Geolocalizacion> listaGeoLocalizacion;
     private double costo;
     private String estado;
     private String fecha;
     private String fechaCreacion;
+    
+    private Vehiculo vehiculo;
+    private Conductor conductor;
 
     public Viaje() {
     }
 
-    public Viaje(int id, int idVehiculo, int idRuta, double costo, String estado, String fecha) {
+    public Viaje(int id, int idVehiculo, int idConductor, double costo, String estado, String fecha) {
         this.id = id;
         this.idVehiculo = idVehiculo;
-        this.idRuta = idRuta;
+        this.idConductor = idConductor;
         this.costo = costo;
         this.estado = estado;
         this.fecha = fecha;
     }
 
     
-    public Viaje(int idVehiculo, int idRuta, List<Producto> listaProductos, double costo, String estado, String fecha) {
+    public Viaje(int idVehiculo, int idConductor, List<Producto> listaProductos, double costo, String estado, String fecha) {
         this.idVehiculo = idVehiculo;
-        this.idRuta = idRuta;
+        this.idConductor = idConductor;
         this.listaProductos = listaProductos;
         this.costo = costo;
         this.estado = estado;
@@ -53,28 +55,20 @@ public class Viaje implements Serializable {
         this.idVehiculo = idVehiculo;
     }
 
-    public int getIdRuta() {
-        return idRuta;
+    public int getIdConductor() {
+        return idConductor;
     }
 
-    public void setIdRuta(int idRuta) {
-        this.idRuta = idRuta;
+    public void setIdConductor(int idConductor) {
+        this.idConductor = idConductor;
     }
-
+    
     public List<Producto> getListaProductos() {
         return listaProductos;
     }
 
     public void setListaProductos(List<Producto> listaProductos) {
         this.listaProductos = listaProductos;
-    }
-
-    public List<Geolocalizacion> getListaGeoLocalizacion() {
-        return listaGeoLocalizacion;
-    }
-
-    public void setListaGeoLocalizacion(List<Geolocalizacion> listaGeoLocalizacion) {
-        this.listaGeoLocalizacion = listaGeoLocalizacion;
     }
 
     public double getCosto() {
@@ -109,10 +103,25 @@ public class Viaje implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    @Override
-    public String toString() {
-        return "Viaje{" + "id=" + id + ", idVehiculo=" + idVehiculo + ", idRuta=" + idRuta + ", listaProductos=" + listaProductos + ", listaGeoLocalizacion=" + listaGeoLocalizacion + ", costo=" + costo + ", estado=" + estado + ", fecha=" + fecha + ", fechaCreacion=" + fechaCreacion + '}';
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public Conductor getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Conductor conductor) {
+        this.conductor = conductor;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Viaje{" + "id=" + id + ", idVehiculo=" + idVehiculo + ", idConductor=" + idConductor + ", listaProductos=" + listaProductos + ", costo=" + costo + ", estado=" + estado + ", fecha=" + fecha + ", fechaCreacion=" + fechaCreacion + '}';
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.followcargo.transporte.modelo;
 
-import com.followcargo.transporte.dao.Vehiculo;
+import com.followcargo.transporte.dao.Producto;
 import com.followcargo.transporte.dao.Viaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,13 +39,13 @@ public class ModeloViajes {
             while (rs.next()) {
                 int idViajes = rs.getInt("id");
                 int idVehiculo = rs.getInt("id_vehiculo");
-                int idRuta = rs.getInt("id_ruta");
+                int idConductor = rs.getInt("id_conductor");
                 double costo = rs.getDouble("costo");
                 String estado = rs.getString("estado");
                 String fecha = rs.getString("fecha");
                 String fechaCreacion = rs.getString("fecha_creacion");
 
-                viaje = new Viaje(idViajes, idVehiculo, idRuta, costo, estado, fecha);
+                viaje = new Viaje(idViajes, idVehiculo, idConductor, costo, estado, fecha);
                 viaje.setFechaCreacion(fechaCreacion);
             }
 
@@ -68,8 +68,8 @@ public class ModeloViajes {
         return viaje;
 
     }
-
-    public List<Viaje> getListaViajes(String id) throws SQLException {
+    
+    public List<Viaje> getListViajes() throws SQLException {
 
         Connection con = null;
         Statement st = null;
@@ -90,13 +90,13 @@ public class ModeloViajes {
 
                 int idViajes = rs.getInt("id");
                 int idVehiculo = rs.getInt("id_vehiculo");
-                int idRuta = rs.getInt("id_ruta");
+                int idConductor = rs.getInt("id_conductor");
                 double costo = rs.getDouble("costo");
                 String estado = rs.getString("estado");
                 String fecha = rs.getString("fecha");
                 String fechaCreacion = rs.getString("fecha_creacion");
 
-                viaje = new Viaje(idViajes, idVehiculo, idRuta, costo, estado, fecha);
+                viaje = new Viaje(idViajes, idVehiculo, idConductor, costo, estado, fecha);
                 viaje.setFechaCreacion(fechaCreacion);
                 listaViajes.add(viaje);
 
@@ -119,6 +119,57 @@ public class ModeloViajes {
         }
 
         return listaViajes;
+
+    }
+    
+    public List<Producto> getListaProductosPorViaje(String idViaje) throws SQLException {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        List<Producto> listaProductosPorViaje = new ArrayList<>();
+
+        try {
+
+            con = dataSource.getConnection();
+
+            String sql = "SELECT * FROM viajes_detalle_producto WHERE id_viaje=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, idViaje);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                int idProducto = rs.getInt("id_producto");
+                int cantidad =rs.getInt("cantidad");
+                double precio = rs.getDouble("precio_total");
+                Producto producto = new Producto();
+                producto.setId(idProducto);
+                producto.setCantidad(cantidad);
+                producto.setPrecio(precio);
+                listaProductosPorViaje.add(producto);
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+
+        } finally {
+
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+
+        }
+
+        return listaProductosPorViaje;
 
     }
 
