@@ -33,7 +33,7 @@
                     <span class="hide-menu">RUTAS</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="listado-rutas" aria-expanded="false">
+                    <a class="sidebar-link" href="rutas" aria-expanded="false">
                         <span>
                             <iconify-icon icon="emojione-monotone:delivery-truck" class="fs-8"></iconify-icon>
                             </span>

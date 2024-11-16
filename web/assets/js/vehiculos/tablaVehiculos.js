@@ -1,4 +1,4 @@
-/* global table_rutas, productosLista, datos */
+/* global table_rutas, productosLista, datos, vehicleTableBody */
 
 let dataTable;
 let dataTableIsInitialized = false;
@@ -25,13 +25,12 @@ let dataTableOptions = {
       className: 'btn btn-info'
     }
   ],
-  lengthMenu: [5, 10, 15, 20, 100, 200, 500],
+  
   columnDefs: [
-    { className: 'centered', targets: [0, 1, 2, 3, 4, 5, 6, 7] },
     { orderable: false, targets: [0, 2, 3] },
-    { width: '3%', targets: [1] }
+    { width: '3%', targets: [0,1,8] }
   ],
-  pageLength: 2,
+  pageLength: 5,
   destroy: true,
    language: {
     processing: 'Procesando...',
@@ -275,43 +274,64 @@ const initDataTable = async () => {
     dataTable.destroy();
   }
 
-  await listRutas();
+  await listVehiculos();
 
-  dataTable = $('#example').DataTable(dataTableOptions);
+  dataTable = $('#vehiculosTableContainer').DataTable(dataTableOptions);
 
   dataTableIsInitialized = true;
 };
 
-const listRutas = async () => {
+const listVehiculos = async () => {
   try {
-    const response = await fetch('https://infoavance.com/FollowCargo/rutas');
-    const rutas = await response.json();
-    
+    // Obtener los datos de los vehículos
+    const responseVehiculos = await fetch('https://infoavance.com/FollowCargo/vehiculo');
+    const vehiculos = await responseVehiculos.json();
+
+    // Obtener los datos de los conductores
+    const responseConductores = await fetch('https://infoavance.com/FollowCargo/conductores');
+    const conductores = await responseConductores.json();
+
+    // Crear un diccionario de conductores para acceder fácilmente por ID
+    const conductoresMap = conductores.reduce((map, conductor) => {
+      map[conductor.id] = conductor.nombres+' '+conductor.apellidos;
+      return map;
+    }, {});
+
     let content = ``;
-    rutas.forEach((ruta, index) => {
-        // Concatenar los nombres de los productos en una cadena separada por comas
-      const nombresProductos = ruta.viaje.listaProductos
-        .map(producto => producto.nombre)
-        .join(', ');
-// Crear una fila para cada ruta y añadir los nombres de los productos
+    vehiculos.forEach((vehiculo, index) => {
+      // Obtener el nombre del conductor utilizando su ID
+      const nombreConductor = conductoresMap[vehiculo.idConductor] || 'Conductor desconocido';
+
+      // Crear una fila para cada vehículo y añadir el nombre del conductor
       content += `
                 <tr>
-                    <td><i class="fa-solid fa-truck-fast"></i></td>
-                    <td> ${index + 1} </td>
-                    <td> ${ruta.origen} </td>
-                    <td> ${ruta.destino} </td>
-                    <td>${nombresProductos}</td>
-                    <td> ${ruta.viaje.costo} </td>
-                    <td> ${ruta.distancia} </td>
-                    <td> ${ruta.viaje.estado} </td>
+                    <td><i class="fa-solid fa-truck-moving"></i></td>
+                    <td> ${index + 1}</td>
+                    <td> ${vehiculo.marca}</td>
+                    <td> ${vehiculo.modelo}</td>
+                    <td> ${vehiculo.tipo}</td>
+                    <td> ${vehiculo.placa}</td>
+                    <td> $${vehiculo.costoFijoViaje}</td>
+                    <td> ${nombreConductor}</td>
+                    <td>
+                      <button class="btn btn-sm btn-primary" onclick="redirectToDetail(${vehiculo.id})">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </td>
                 </tr>`;
     });
-    table_rutas.innerHTML = content;
+    vehicleTableBody.innerHTML = content;
     
   } catch (error) {
     alert(error);
   }
 };
+
+// Función para redirigir al detalle del vehículo
+const redirectToDetail = (id) => {
+  window.location.href = `/FollowCargo/vehiculos-form?id=${id}`;
+};
+
 
 window.addEventListener('load', async () => {
   await initDataTable();
