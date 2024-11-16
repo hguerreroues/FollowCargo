@@ -1,7 +1,8 @@
 package com.followcargo.transporte.modelo;
 
+import com.followcargo.transporte.dao.Dimensiones;
+import com.followcargo.transporte.dao.Producto;
 import com.followcargo.transporte.dao.Vehiculo;
-import com.followcargo.transporte.dao.Viaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,43 +12,44 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
-public class ModeloViajes {
-
+public class ModeloVehiculo {
+    
     private DataSource dataSource;
 
-    public ModeloViajes(DataSource dataSource) {
+    public ModeloVehiculo(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+    
+    public Vehiculo getVehiculo(String id) throws SQLException {
 
-    public Viaje getViajes(String id) throws SQLException {
 
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-
-        Viaje viaje = null;
+        
+        Vehiculo vehiculo = null;
 
         try {
 
             con = dataSource.getConnection();
 
-            String sql = "SELECT * FROM viajes WHERE id=?";
+            String sql = "SELECT * FROM vehiculo WHERE id=?";
             ps = con.prepareStatement(sql);
             ps.setString(1, id);
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                int idViajes = rs.getInt("id");
-                int idVehiculo = rs.getInt("id_vehiculo");
-                int idRuta = rs.getInt("id_ruta");
-                double costo = rs.getDouble("costo");
-                String estado = rs.getString("estado");
-                String fecha = rs.getString("fecha");
+                int idVehiculo = rs.getInt("id");
+                String tipo = rs.getString("tipo");
+                String marca = rs.getString("marca");
+                String modelo = rs.getString("modelo");
+                String placa = rs.getString("placa");
                 String fechaCreacion = rs.getString("fecha_creacion");
-
-                viaje = new Viaje(idViajes, idVehiculo, idRuta, costo, estado, fecha);
-                viaje.setFechaCreacion(fechaCreacion);
+                
+                vehiculo = new Vehiculo(idVehiculo,tipo, marca, modelo, placa);
+                vehiculo.setFechaCreacion(fechaCreacion);
             }
+            
 
         } catch (Exception ex) {
 
@@ -59,48 +61,48 @@ public class ModeloViajes {
             if (con != null) {
                 con.close();
             }
-            if (ps != null) {
+            if(ps!= null) {
                 ps.close();
             }
 
         }
 
-        return viaje;
+        return vehiculo;
 
     }
-
-    public List<Viaje> getListaViajes(String id) throws SQLException {
+    
+    public List<Vehiculo> getListaVehiculos() throws SQLException {
 
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
-
-        Viaje viaje = null;
-        List<Viaje> listaViajes = new ArrayList<>();
+        
+        Vehiculo vehiculo = null;
+        List<Vehiculo> listaVehiculo = new ArrayList<>();
 
         try {
 
             con = dataSource.getConnection();
 
-            String sql = "SELECT * FROM viajes ORDER BY id ASC";
+            String sql = "SELECT * FROM vehiculo ORDER BY id ASC";
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
             while (rs.next()) {
-
-                int idViajes = rs.getInt("id");
-                int idVehiculo = rs.getInt("id_vehiculo");
-                int idRuta = rs.getInt("id_ruta");
-                double costo = rs.getDouble("costo");
-                String estado = rs.getString("estado");
-                String fecha = rs.getString("fecha");
+                
+                int idVehiculo = rs.getInt("id");
+                String tipo = rs.getString("tipo");
+                String marca = rs.getString("marca");
+                String modelo = rs.getString("modelo");
+                String placa = rs.getString("placa");
                 String fechaCreacion = rs.getString("fecha_creacion");
-
-                viaje = new Viaje(idViajes, idVehiculo, idRuta, costo, estado, fecha);
-                viaje.setFechaCreacion(fechaCreacion);
-                listaViajes.add(viaje);
-
+                
+                vehiculo = new Vehiculo(idVehiculo,tipo, marca, modelo, placa);
+                vehiculo.setFechaCreacion(fechaCreacion);
+                listaVehiculo.add(vehiculo);
+                
             }
+            
 
         } catch (Exception ex) {
 
@@ -112,13 +114,13 @@ public class ModeloViajes {
             if (con != null) {
                 con.close();
             }
-            if (st != null) {
+            if(st!= null) {
                 st.close();
             }
 
         }
 
-        return listaViajes;
+        return listaVehiculo;
 
     }
 

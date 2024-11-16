@@ -1,6 +1,7 @@
 package com.followcargo.transporte.modelo;
 
 import com.followcargo.transporte.dao.Geolocalizacion;
+import com.followcargo.transporte.dao.Ruta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -68,7 +69,7 @@ public class ModeloGeolocalizacion {
 
     }
     
-    public List<Geolocalizacion> getListasGeolocalizacion(String idRuta) throws SQLException {
+    public List<Geolocalizacion> getListasGeolocalizacion(String id) throws SQLException {
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -83,20 +84,18 @@ public class ModeloGeolocalizacion {
 
             String sql = "SELECT * FROM rutas_geolocalizacion WHERE id_ruta=? ORDER BY id ASC";
             ps = con.prepareStatement(sql);
-            ps.setString(1, idRuta);
-            
-            rs = ps.executeQuery();
+            ps.setString(1, id);
 
             while (rs.next()) {
                 
                 int idRutasGeolocalizacion = rs.getInt("id");
-                int idRutaInt = rs.getInt("id_ruta");
+                int idRuta = rs.getInt("id_ruta");
                 double latitud = rs.getDouble("latitud");
                 double longitud = rs.getDouble("longitud");
                 String descripcion = rs.getString("descripcion");
                 String fechaCreacion = rs.getString("fecha_creacion");
                 
-                geolocalizacion = new Geolocalizacion(idRutasGeolocalizacion, idRutaInt, latitud, longitud, descripcion);
+                geolocalizacion = new Geolocalizacion(idRutasGeolocalizacion, idRuta, latitud, longitud, descripcion);
                 geolocalizacion.setFechaCreacion(fechaCreacion);
                 listaGeolocalizacion.add(geolocalizacion);
                 

@@ -8,50 +8,20 @@ public class Producto implements Serializable {
     private String nombre;
     private String descripcion;
     private double peso;
-    private int cantidad;
-    private String unidadMedida;
-    private double precio;
     private Dimensiones dimensiones;
     private String fechaCreacion;
 
     public Producto() {
     }
 
-    
-    //Para lista de productos por viaje
-    public Producto(String nombre, String descripcion, double peso, String unidadMedida, Dimensiones dimensiones) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.peso = peso;
-        this.unidadMedida = unidadMedida;
-        this.dimensiones = dimensiones;
-    }
-    
-    
-
-    public Producto(int id, String nombre, String descripcion, double peso, int cantidad, String unidadMedida, double precio, Dimensiones dimensiones, String fechaCreacion) {
+    public Producto(int id, String nombre, String descripcion, double peso, Dimensiones dimensiones) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.peso = peso;
-        this.cantidad = cantidad;
-        this.unidadMedida = unidadMedida;
-        this.precio = precio;
-        this.dimensiones = dimensiones;
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Producto(String nombre, String descripcion, double peso, int cantidad, String unidadMedida, double precio, Dimensiones dimensiones) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.peso = peso;
-        this.cantidad = cantidad;
-        this.unidadMedida = unidadMedida;
-        this.precio = precio;
         this.dimensiones = dimensiones;
     }
 
-    
     public int getId() {
         return id;
     }
@@ -84,30 +54,6 @@ public class Producto implements Serializable {
         this.peso = peso;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-    
-    public String getUnidadMedida() {
-        return unidadMedida;
-    }
-
-    public void setUnidadMedida(String unidadMedida) {
-        this.unidadMedida = unidadMedida;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-    
     public Dimensiones getDimensiones() {
         return dimensiones;
     }
@@ -126,7 +72,7 @@ public class Producto implements Serializable {
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", peso=" + peso + ", cantidad=" + cantidad + ", unidadMedida=" + unidadMedida + ", precio=" + precio + ", dimensiones=" + dimensiones + ", fechaCreacion=" + fechaCreacion + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", peso=" + peso + ", dimensiones=" + dimensiones + ", fechaCreacion=" + fechaCreacion + '}';
     }
-
+    
 }

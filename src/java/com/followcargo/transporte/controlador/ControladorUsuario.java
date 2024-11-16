@@ -3,6 +3,8 @@ package com.followcargo.transporte.controlador;
 import com.followcargo.transporte.dao.Usuario;
 import com.followcargo.transporte.modelo.ModeloUsuario;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import org.apache.commons.lang3.StringUtils;
 
-@WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario, /Login, /usuario"})
+@WebServlet(name = "ControladorUsuario", urlPatterns = {"/ControladorUsuario, /Dashboard, /usuario"})
 public class ControladorUsuario extends HttpServlet {
 
     private ModeloUsuario modeloUsuario;
